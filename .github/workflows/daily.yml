@@ -20,8 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r src/requirements.txt
-          pip install kokoro
+          pip install requests google-generativeai google-auth google-api-python-client google-auth-httplib2 google-auth-oauthlib kokoro
 
       - name: Install FFmpeg
         run: sudo apt-get install -y ffmpeg

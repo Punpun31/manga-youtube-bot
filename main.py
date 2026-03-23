@@ -33,13 +33,3 @@ def run():
 if __name__ == "__main__":
     run()
 ```
-
-3. Commit et ✅
-
----
-
-Şimdi son dosya — **`.github/workflows/daily.yml`:**
-
-1. **"Add file"** → **"Create new file"** → dosya adı kutusuna şunu yaz:
-```
-   .github/workflows/daily.yml

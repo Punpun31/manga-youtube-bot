@@ -1,5 +1,5 @@
 requests
-google-generativeai
+google-genai
 google-auth
 google-api-python-client
 google-auth-httplib2

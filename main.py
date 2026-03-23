@@ -6,7 +6,7 @@ from render import render_video
 from upload import upload_video
 
 def run():
-    print("🔍 Fetching new manga chapters...")
+    print("Fetching new manga chapters...")
     chapters = get_new_chapters(limit=1)
 
     if not chapters:
@@ -14,22 +14,21 @@ def run():
         return
 
     manga = chapters[0]
-    print(f"📖 Selected: {manga['manga_title']} - Chapter {manga['chapter']}")
+    print(f"Selected: {manga['manga_title']} - Chapter {manga['chapter']}")
 
-    print("✍️ Generating script...")
+    print("Generating script...")
     script = generate_script(manga)
 
-    print("🎙️ Generating voiceover...")
+    print("Generating voiceover...")
     voiceover_path = generate_voiceover(script)
 
-    print("🎬 Rendering video...")
+    print("Rendering video...")
     video_path = render_video(manga, voiceover_path)
 
-    print("📤 Uploading to YouTube...")
+    print("Uploading to YouTube...")
     upload_video(video_path, manga, script)
 
-    print("✅ Done! Video published successfully.")
+    print("Done! Video published successfully.")
 
 if __name__ == "__main__":
     run()
-```

@@ -1,4 +1,4 @@
-name: Daily Manga Video v2
+name: Manga Bot v2
 
 on:
   schedule:
@@ -19,8 +19,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: |
-          pip install requests google-generativeai google-auth google-api-python-client google-auth-httplib2 google-auth-oauthlib kokoro
+        run: pip install requests google-generativeai google-auth google-api-python-client google-auth-httplib2 google-auth-oauthlib kokoro
 
       - name: Install FFmpeg
         run: sudo apt-get install -y ffmpeg

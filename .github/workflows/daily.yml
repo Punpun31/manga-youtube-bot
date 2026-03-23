@@ -1,6 +1,4 @@
-# v2
-name: Daily Manga Video
-name: Daily Manga Video
+name: Daily Manga Video v2
 
 on:
   schedule:

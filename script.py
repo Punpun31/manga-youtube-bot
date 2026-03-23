@@ -3,7 +3,7 @@ import os
 
 def generate_script(manga_info):
     genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-    model = genai.GenerativeModel("gemini-1.5-flash")
+    model = genai.GenerativeModel("gemini-2.0-flash")
 
     prompt = f"""
 You are an enthusiastic manga YouTuber. Write an engaging YouTube video script for the following manga chapter:

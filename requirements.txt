@@ -1,7 +1,8 @@
 requests
-   google-generativeai
-   google-auth
-   google-api-python-client
-   google-auth-httplib2
-   google-auth-oauthlib
-   kokoro
+google-generativeai
+google-auth
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+kokoro
+soundfile

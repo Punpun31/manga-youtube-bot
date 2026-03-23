@@ -1,9 +1,8 @@
-import google.generativeai as genai
 import os
+from google import genai
 
 def generate_script(manga_info):
-    genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-    model = genai.GenerativeModel("gemini-2.0-flash")
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
     prompt = f"""
 You are an enthusiastic manga YouTuber. Write an engaging YouTube video script for the following manga chapter:
@@ -24,5 +23,8 @@ The script should:
 Write only the script text, no stage directions or labels.
 """
 
-    response = model.generate_content(prompt)
+    response = client.models.generate_content(
+        model="gemini-2.0-flash",
+        contents=prompt
+    )
     return response.text

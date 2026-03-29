@@ -1,7 +1,8 @@
 import requests
 from datetime import datetime, timedelta
+import random
 
-def get_new_chapters(limit=5):
+def get_new_chapters(limit=10):
     yesterday = (datetime.utcnow() - timedelta(days=1)).strftime("%Y-%m-%dT%H:%M:%S")
     
     url = "https://api.mangadex.org/chapter"
@@ -32,6 +33,7 @@ def get_new_chapters(limit=5):
             "pages": chapter["attributes"].get("pages", 0),
         })
     
+    random.shuffle(results)
     return results
 
 if __name__ == "__main__":

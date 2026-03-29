@@ -13,7 +13,7 @@ def upload_video(video_path, manga_info, script_text):
     )
 
     youtube = build("youtube", "v3", credentials=creds)
-
+    channel_id = "UCT93CtLxEhLepbqizBwOzWg"
     title = f"{manga_info['manga_title']} Chapter {manga_info['chapter']} Review!"
     description = f"""{script_text[:400]}...
 

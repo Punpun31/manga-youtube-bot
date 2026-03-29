@@ -26,13 +26,13 @@ def upload_video(video_path, manga_info, script_text):
             "title": title,
             "description": description,
             "tags": ["manga", "anime", manga_info["manga_title"], "chapter review"],
-            "categoryId": "24"
+            "categoryId": "24",
+            "channelId": channel_id
         },
         "status": {
             "privacyStatus": "public"
         }
     }
-
     media = MediaFileUpload(video_path, mimetype="video/mp4", resumable=True)
 
     request = youtube.videos().insert(

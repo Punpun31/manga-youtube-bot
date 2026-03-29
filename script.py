@@ -2,7 +2,7 @@ import os
 import requests
 
 def generate_script(manga_info):
-    api_key = os.environ["GEMINI_API_KEY"]
+    api_key = os.environ["GROQ_API_KEY"]
     
     headers = {
         "Authorization": f"Bearer {api_key}",

@@ -1,11 +1,15 @@
 import os
-from google import genai
+import requests
 
 def generate_script(manga_info):
-    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
-
-    prompt = f"""
-You are an enthusiastic manga YouTuber. Write an engaging YouTube video script for the following manga chapter:
+    api_key = os.environ["GEMINI_API_KEY"]
+    
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
+    
+    prompt = f"""You are an enthusiastic manga YouTuber. Write an engaging YouTube video script for the following manga chapter:
 
 Manga: {manga_info['manga_title']}
 Chapter: {manga_info['chapter']}
@@ -20,11 +24,18 @@ The script should:
 - Be around 600-800 words
 - Sound natural and conversational, not robotic
 
-Write only the script text, no stage directions or labels.
-"""
+Write only the script text, no stage directions or labels."""
 
-    response = client.models.generate_content(
-        model="gemini-2.0-flash",
-        contents=prompt
+    data = {
+        "model": "llama-3.3-70b-versatile",
+        "messages": [{"role": "user", "content": prompt}],
+        "max_tokens": 1500
+    }
+    
+    response = requests.post(
+        "https://api.groq.com/openai/v1/chat/completions",
+        headers=headers,
+        json=data
     )
-    return response.text
+    
+    return response.json()["choices"][0]["message"]["content"]

@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 import random
 
 def get_new_chapters(limit=10):
-    yesterday = (datetime.utcnow() - timedelta(days=1)).strftime("%Y-%m-%dT%H:%M:%S")
+    yesterday = (datetime.utcnow() - timedelta(days=7)).strftime("%Y-%m-%dT%H:%M:%S")
     
     url = "https://api.mangadex.org/chapter"
     params = {

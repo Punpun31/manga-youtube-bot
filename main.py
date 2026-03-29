@@ -1,3 +1,4 @@
+import random
 import os
 from discover import get_new_chapters
 from script import generate_script
@@ -13,7 +14,7 @@ def run():
         print("No new chapters found today.")
         return
 
-    manga = chapters[0]
+    manga = random.choice(chapters)
     print(f"Selected: {manga['manga_title']} - Chapter {manga['chapter']}")
 
     print("Generating script...")
